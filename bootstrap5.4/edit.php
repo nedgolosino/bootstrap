@@ -27,7 +27,7 @@
             }
         }else{
 
-            $sql = "SELECT * FROM students WHERE ID = $ID";
+            $sql = "SELECT * FROM students WHERE ID = $ID AND attended = 'NO'";
             $sql = mysqli_query($conn, $sql);
             
             $row = mysqli_fetch_assoc($sql);

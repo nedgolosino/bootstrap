@@ -121,5 +121,8 @@
 </tbody>
         </table>
     </div>
+    <div class="container d-flex justify-content-end mt-5">
+        <p>Date Generated: <?php echo date('Y-m-d');?></p>
+    </div>
 </body>
 </html>

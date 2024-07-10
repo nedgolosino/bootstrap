@@ -4,7 +4,7 @@
     if(isset($_GET['ID'])){
         $ID = $_GET['ID'];
 
-        $check = "SELECT * FROM student WHERE ID = '$ID'";
+        $check = "SELECT * FROM students WHERE ID = '$ID' AND attended = 'Yes'";
         $check = mysqli_query($conn, $check);
 
         $row = mysqli_fetch_assoc($check);
@@ -19,7 +19,7 @@
             
             $attended = $row['attended'];
 
-            $sql = "UPDATE students SET attended = '$attended'";
+            $sql = "UPDATE students SET attended = 'Yes' WHERE ID = '$ID'";
             $sql = mysqli_query($conn, $sql);
 
             if($sql){

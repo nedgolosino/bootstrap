@@ -35,7 +35,7 @@
     if(isset($_GET['ID'])){
         $ID = $_GET['ID'];
 
-        $sql = "SELECT * FROM students WHERE ID = '$ID'";
+        $sql = "SELECT * FROM students WHERE ID = '$ID' and attended = 'No'";
         $sql = mysqli_query($conn, $sql);
 
         if($sql-> num_rows>0){
@@ -53,17 +53,18 @@
                 </tbody>";
         }else{
             echo "<script>
-                window.alert('NO RECORDS FOUND');
+                window.alert('Record Already Attended');
                 window.location.href='search.php';
             </script>";
         }
     
     }else{
         
-
-        /*$sql = "SELECT * FROM students WHERE attended = 'No'";
+        /*try{
+        $sql = "SELECT * FROM students WHERE attended = 'No'";
         $sql = mysqli_query($conn, $sql);
 
+        
         $row = mysqli_fetch_assoc($sql);
 
         echo "  <tbody>
@@ -74,7 +75,10 @@
                         <td>$row[amount]</td>
                         <td><a href='attend.php?ID=$row[ID]'>Attend</a></td>
                     </tr>
-                </tbody>";*/
+                </tbody>";
+        }catch(mysqli_sql_exception){
+            echo "No Data Found";
+        }*/
     
     }
 ?>
